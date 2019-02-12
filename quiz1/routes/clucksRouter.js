@@ -6,4 +6,8 @@ router.get("/", (req, res)=>{
     res.send('GET /clucks is working');
 });
 
+router.get('/new', (req, res) => {
+    res.render('clucks/new.ejs');
+});
+
 module.exports = router;
