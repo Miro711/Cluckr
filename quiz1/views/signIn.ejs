@@ -1,9 +1,12 @@
 <%- include('./partials/header') %>
 
-<form action="/sign_in" method="POST" class="form-inline">
-    <label for="username">Username</label><br>
-    <input class="form-control mr-2" type="text" name="username" placeholder="e.g. Madam Welminster">
-    <button class="btn btn-outline" type="submit">Sign in</button>
+<form action="/sign_in" method="POST" class="container">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input class="form-control mr-2" type="text" name="username" placeholder="e.g. Madam Welminster">
+    </div>
+    <button class="btn btn-outline float-right" type="submit">Sign in</button>
 </form>
 
 <%- include('./partials/footer') %>
+
