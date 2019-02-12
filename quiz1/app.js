@@ -6,6 +6,7 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(logger('dev'));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use((req, res, next) => {
     const username = req.cookies.username;

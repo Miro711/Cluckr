@@ -10,4 +10,8 @@ router.get('/new', (req, res) => {
     res.render('clucks/new.ejs');
 });
 
+router.post('/', (req, res) => {
+    const newCluck = req.body;
+});
+
 module.exports = router;
