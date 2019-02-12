@@ -4,8 +4,8 @@ const knex = require('../db/client');
 const router = express.Router();
 
 router.get("/", (req, res)=>{
-    //res.send('GET /clucks is working');
     knex('clucks')
+    .orderBy('created_at','desc')
     .then(clucks => {
         res.render('clucks/index.ejs', { clucks: clucks });
     });
