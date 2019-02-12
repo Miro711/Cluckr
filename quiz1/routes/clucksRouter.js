@@ -12,18 +12,21 @@ router.get("/", (req, res)=>{
 });
 
 router.get('/new', (req, res) => {
-    res.render('clucks/new.ejs');
+    if (req.cookies.username) {
+        res.render('clucks/new.ejs');
+    } else {
+        res.render('signIn.ejs');
+    }
 });
 
 router.post('/', (req, res) => {
     const newCluck = req.body;
+    newCluck.username = req.cookies.username;
     knex('clucks')
         .insert(newCluck)
         .returning('*')
         .then(clucks => {
             res.redirect(`/clucks`);
-            //const cluck = clucks[0];
-            //res.redirect(`/clucks/${cluck.id}`);
         });
 });
 
