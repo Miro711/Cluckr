@@ -2,14 +2,15 @@
 
 <div class="post-cards">
     <% for (let cluck of clucks) { %>
-        <div class="card mb-4">
+        <div class="card mx-3 my-4 d-flex flex-row">
+            <img class="m-3" src="https://media.istockphoto.com/photos/rooster-bantam-crows-isolate-on-white-background-picture-id655770274?k=6&m=655770274&s=612x612&w=0&h=gZsG9RP2G9SBqZTXgt71BObAd6ijbzFaeUfbj8HGW6o=" alt="Image Link Broken" width="100" height="100">
             <div class="card-body">
                 <h5 class="card-title"><%= cluck.username %> · <%= cluck.created_at %></h5>
                 <p class="card-text"><%= cluck.content %></p>
+                <% if (cluck.image_url) { %>
+                <img class="small-image" src="<%= cluck.image_url %>" alt="Image Link Broken" width="300" height="300">
+                <% } %>
             </div>
-            <% if (cluck.image_url) { %>
-                <img class="small-image" src="<%= cluck.image_url %>" alt="Image Broken">
-            <% } %>
         </div>
     <% } %>
 </div>
