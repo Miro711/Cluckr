@@ -18,4 +18,8 @@ router.post('/sign_out', (req, res) => {
     res.redirect('/clucks');
 });
 
+router.get("/", (req, res) => {
+    res.redirect('/clucks');
+});
+
 module.exports = router;
