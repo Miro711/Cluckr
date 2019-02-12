@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-    <form method="POST" action="/clucks"> 
+    <form method="POST" action="/clucks" class="container"> 
     <div class="form-group">
         <label for="content">Content</label><br>
         <textarea name="content" placeholder="Whatchoo cluckin' 'bout?" class="form-control"></textarea> 
@@ -8,6 +8,6 @@
         <label for="image_url">Image Url</label><br>
         <input type="url" name="image_url" placeholder="e.g. https://www.example.com/some.png" class="form-control"> 
     </div>  
-    <input type="submit" value="Cluck!" class="btn btn-outline-success">
+    <input type="submit" value="Cluck!" class="btn btn-outline-success float-right">
     </form>
 <%- include('../partials/footer') %>
