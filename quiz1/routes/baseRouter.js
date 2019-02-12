@@ -6,10 +6,10 @@ router.get("/", (req, res)=>{
     res.render("../views/signIn.ejs");
 });
 
+const COOKIE_MAX_AGE = 1000 * 60 * 60 * 24 * 7;
 router.post('/sign_in', (req, res) => {
     const formData = req.body; 
-    console.log(formData)
-    res.cookie('username', formData.username, { maxAge: 1000*60*60*24*7});
+    res.cookie('username', formData.username, { maxAge: COOKIE_MAX_AGE});
     res.redirect('/');
 });
 
