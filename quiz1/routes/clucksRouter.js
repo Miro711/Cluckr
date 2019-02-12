@@ -1,5 +1,6 @@
 
 const express = require('express');
+const knex = require('../db/client');
 const router = express.Router();
 
 router.get("/", (req, res)=>{
@@ -12,6 +13,14 @@ router.get('/new', (req, res) => {
 
 router.post('/', (req, res) => {
     const newCluck = req.body;
+    knex('clucks')
+        .insert(newCluck)
+        .returning('*')
+        .then(clucks => {
+            res.redirect(`/clucks`);
+            //const cluck = clucks[0];
+            //res.redirect(`/clucks/${cluck.id}`);
+        });
 });
 
 module.exports = router;
