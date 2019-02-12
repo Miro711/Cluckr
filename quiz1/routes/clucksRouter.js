@@ -4,7 +4,11 @@ const knex = require('../db/client');
 const router = express.Router();
 
 router.get("/", (req, res)=>{
-    res.send('GET /clucks is working');
+    //res.send('GET /clucks is working');
+    knex('clucks')
+    .then(clucks => {
+        res.render('clucks/index.ejs', { clucks: clucks });
+    });
 });
 
 router.get('/new', (req, res) => {
