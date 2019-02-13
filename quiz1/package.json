@@ -1,0 +1,28 @@
+{
+  "name": "knexpress_cluckr",
+  "version": "0.0.1",
+  "description": "Cluckr Express App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "db:create": "createdb --echo knexpress_quiz",
+		"db:drop": "dropdb --if-exists --echo knexpress_quiz",
+		"db:migrate": "knex migrate:latest",
+		"db:rollback": "knex migrate:rollback",
+		"db:reset": "npm run db:drop && npm run db:create && npm run db:migrate"
+  },
+  "author": "Amir",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "knex": "^0.16.3",
+    "morgan": "^1.9.1",
+    "pg": "^7.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}

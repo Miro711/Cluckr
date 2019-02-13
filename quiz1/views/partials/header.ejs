@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Cluckr App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/main.css">
+        
+        <script src="public/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="public/js/popper.min.js"></script>
+        <script src="public/js/bootstrap.min.js"></script>
+
+    </head>
+    <body>
+
+    <header pb-2>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/clucks">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Twemoji_1f413.svg/2000px-Twemoji_1f413.svg.png" width="30" height="30" alt="Cluckr">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item px-2">
+            <form action="/clucks/new" method="get" class="form-inline">
+                <button class="btn btn-dark" type="submit">Cluck!</button>
+            </form>
+        </li>
+        <% if (loggedInUserName != '') { %>
+            <span class="navbar-text mr-2 px-2"><%= loggedInUserName %></span>
+            <li class="nav-item">
+            <form action="/sign_out" method="POST" class="form-inline">
+                <button class="btn btn-dark">Sign Out</button>
+            </form>
+            </LI>
+        <% } else { %>
+            <li class="nav-item px-2">
+            <form action="/sign_in" method="GET" class="form-inline">
+                <button class="btn btn-dark" type="submit">Sign in</button>
+            </form>
+            </li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>
+</header>
+<body>
+
+    
+        
