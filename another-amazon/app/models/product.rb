@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
-    validates :title, prescence: true, uniqueness: { case_sensitive: false }
+    validates :title, presence: true, uniqueness: { case_sensitive: false }
     validates :price, numericality: { greater_than: 0}
-    validates :description, prescence: true, length: { minimum: 10}
+    validates :description, presence: true, length: { minimum: 10}
 
     before_validation :set_default_price
     before_save :capitalize_title
