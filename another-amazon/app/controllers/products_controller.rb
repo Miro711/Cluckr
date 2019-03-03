@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
     before_action :authenticate_user!, except: [:show, :index]
     before_action :find_product, only: [:show, :destroy, :edit, :update]
+    before_action :authorize!, only: [:edit, :update, :destroy]
 
     def new
         @product = Product.new
@@ -50,6 +51,10 @@ class ProductsController < ApplicationController
 
     def find_product
         @product = Product.find(params[:id])
+    end
+
+    def authorize!
+        redirect_to root_path, alert: "Access Denied" unless can? :crud, @product
     end
 
 end
