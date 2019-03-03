@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get "/", to: "products#index", as: :root
   resources :users, only: [:new, :create]
+  resource :session, only: [:new, :create, :destroy]
   resources :products do
     resources :reviews, shallow: true, only: [:create, :destroy]
   end
