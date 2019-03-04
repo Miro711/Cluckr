@@ -7,7 +7,7 @@ class NewsArticle < ApplicationRecord
     before_validation :titleized_title
 
     def titleized_title
-        self.title&.titleize!
+        self.title = self.title&.titleize
     end
 
     def publish
